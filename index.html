@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura // Focus Space</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="pop-sfx" src="https://assets.mixkit.co/active_storage/sfx/2358/2358-preview.mp3" preload="auto"></audio>
+
+    <div class="goal-container">
+        <span class="goal-label">BUBBLES CLEARED: </span>
+        <span id="burst-count">0</span>
+    </div>
+
+    <div class="aurora-wrapper">
+        <div class="blob pink-1"></div>
+        <div class="blob purple-1"></div>
+        <div class="blob pink-2"></div>
+        <div class="blob purple-2"></div>
+    </div>
+
+    <div class="mood-section-container">
+        <p class="mood-label">MOOD</p>
+        <div class="mood-selector">
+            <div class="mood-item" onclick="setMood('aurora')">
+                <div class="mood-btn" style="background: #ff7eb3;"></div>
+                <span>Aurora</span>
+            </div>
+            <div class="mood-item" onclick="setMood('sunset')">
+                <div class="mood-btn" style="background: #ff4e50;"></div>
+                <span>Sunset</span>
+            </div>
+            <div class="mood-item" onclick="setMood('ocean')">
+                <div class="mood-btn" style="background: #1abc9c;"></div>
+                <span>Ocean</span>
+            </div>
+            <div class="mood-item" onclick="setMood('midnight')">
+                <div class="mood-btn" style="background: #00b894;"></div>
+                <span>Midnight</span>
+            </div>
+            <div class="mood-item" onclick="setMood('cyber')">
+                <div class="mood-btn" style="background: #fdcb6e;"></div>
+                <span>Cyber</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-wrapper">
+        <section id="focus-page">
+            <div class="glass-card wavy">
+                <h1 id="clock">00:00:00</h1>
+                <p id="zen-timer" style="display: none; font-size: 1.3rem; color: #ffb8d1; margin-bottom: 15px; font-weight: 600;">Session: 00:00</p>
+                <p id="greeting">Loading...</p>
+                <div class="button-group">
+                    <button onclick="document.getElementById('notes-page').scrollIntoView({behavior: 'smooth'})">Explore Aura ↓</button>
+                    <button id="zen-btn" onclick="toggleZen()">Zen Mode</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="notes-page">
+            <div class="glass-card wavy">
+                <h2>Aura Thoughts</h2>
+                <textarea id="note-input" placeholder="What's your vibe?"></textarea>
+                <button id="add-note-btn">Pin Thought</button>
+                <button onclick="document.getElementById('todo-page').scrollIntoView({behavior: 'smooth'})">View Tasks ↓</button>
+            </div>
+        </section>
+
+        <section id="todo-page">
+            <div class="glass-card wavy">
+                <h2>Aura Tasks</h2>
+                <div class="input-group" style="display: flex; gap: 10px; margin-top: 20px;">
+                    <input type="text" id="todo-input" placeholder="New task..." autocomplete="off">
+                    <button id="add-todo-btn">+</button>
+                </div>
+                <ul id="todo-list"></ul>
+                <button onclick="document.getElementById('focus-page').scrollIntoView({behavior: 'smooth'})" style="margin-top: 20px;">Back to Top ↑</button>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
